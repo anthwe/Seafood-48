@@ -1,0 +1,370 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seafood 48</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #00bcd4;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00bcd4;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url("gambar/logo.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #00bcd4;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #008fa1;
+            transform: scale(1.05);
+        }
+
+        /* Section */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Menu */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .menu-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #00a6bd;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* About */
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact */
+        .contact {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            Seafood <span>48</span>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Seafood 48</h1>
+            <p>Fresh Seafood, Delicious Taste</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu">
+        <div class="section-title">
+            <h2>Menu Kami</h2>
+            <p>Pilihan seafood lezat untuk Anda</p>
+        </div>
+
+        <div class="menu-container">
+
+            <div class="menu-card">
+                <img src="gambar/cumi.jpg" alt="Cumi Goreng">
+                <div class="menu-info">
+                    <h3>Cumi Goreng Tepung</h3>
+                    <p>Cumi crispy dengan rasa gurih dan renyah.</p>
+                    <div class="price">Rp 35.000</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="gambar/udang.jpg" alt="Udang">
+                <div class="menu-info">
+                    <h3>Udang Saus Padang</h3>
+                    <p>Udang segar dengan saus Padang yang nikmat.</p>
+                    <div class="price">Rp 45.000</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="gambar/kerang.jpg" alt="Kerang">
+                <div class="menu-info">
+                    <h3>Kerang Dara</h3>
+                    <p>Kerang dara segar dengan bumbu spesial.</p>
+                    <div class="price">Rp 30.000</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="gambar/nasi.jpg" alt="Nasi">
+                <div class="menu-info">
+                    <h3>Nasi Putih</h3>
+                    <p>Nasi putih hangat sebagai pendamping seafood.</p>
+                    <div class="price">Rp 6.000</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80" alt="Es Teh">
+                <div class="menu-info">
+                    <h3>Es Teh Manis</h3>
+                    <p>Minuman teh manis dingin yang menyegarkan.</p>
+                    <div class="price">Rp 5.000</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>Tentang Seafood 48</h2>
+        </div>
+
+        <div class="about-content">
+            <p>
+                Seafood 48 adalah restoran yang menyediakan berbagai macam
+                hidangan seafood dengan bahan yang segar dan cita rasa yang
+                lezat. Kami menyediakan makanan yang cocok untuk keluarga,
+                teman, maupun acara bersama.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="section-title">
+            <h2>Gallery</h2>
+            <p>Beberapa hidangan Seafood 48</p>
+        </div>
+
+        <div class="gallery">
+            <img src="gambar/cumi.jpg" alt="Cumi Goreng">
+            <img src="gambar/udang.jpg" alt="Udang Saus Padang">
+            <img src="gambar/kerang.jpg" alt="Kerang Dara">
+            <img src="gambar/nasi.jpg" alt="Nasi Putih">
+            <img src="gambar/esteh.jpg" alt="Es Teh Manis">
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact</h2>
+        </div>
+
+        <p>📍 Jl. Raya Serpong Kilometer 7 No.89-2</p>
+        <p>Lengkong Karya, Kec. Serpong Utara</p>
+        <p>Kota Tangerang Selatan, Banten 15326</p>
+        <p>📞 0812-3456-7890</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Seafood 48. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+```
