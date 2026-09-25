@@ -64,7 +64,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                        url("gambar/logo.png");
+                        url("logo.png");
             background-size: cover;
             background-position: center;
             display: flex;
@@ -190,6 +190,14 @@
             transition: 0.3s;
         }
 
+        .gallery video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            background: #111;
+        }
+
         .gallery img:hover {
             transform: scale(1.05);
         }
@@ -269,7 +277,7 @@
         <div class="menu-container">
 
             <div class="menu-card">
-                <img src="gambar/cumi.jpg" alt="Cumi Goreng">
+                <img src="cumi.jpg" alt="Cumi Goreng">
                 <div class="menu-info">
                     <h3>Cumi Goreng Tepung</h3>
                     <p>Cumi crispy dengan rasa gurih dan renyah.</p>
@@ -278,7 +286,7 @@
             </div>
 
             <div class="menu-card">
-                <img src="gambar/udang.jpg" alt="Udang">
+                <img src="udang.jpg" alt="Udang">
                 <div class="menu-info">
                     <h3>Udang Saus Padang</h3>
                     <p>Udang segar dengan saus Padang yang nikmat.</p>
@@ -287,7 +295,7 @@
             </div>
 
             <div class="menu-card">
-                <img src="gambar/kerang.jpg" alt="Kerang">
+                <img src="kerang.jpg" alt="Kerang">
                 <div class="menu-info">
                     <h3>Kerang Dara</h3>
                     <p>Kerang dara segar dengan bumbu spesial.</p>
@@ -296,7 +304,7 @@
             </div>
 
             <div class="menu-card">
-                <img src="gambar/nasi.jpg" alt="Nasi">
+                <img src="nasi.jpg" alt="Nasi">
                 <div class="menu-info">
                     <h3>Nasi Putih</h3>
                     <p>Nasi putih hangat sebagai pendamping seafood.</p>
@@ -340,11 +348,15 @@
         </div>
 
         <div class="gallery">
-            <img src="gambar/cumi.jpg" alt="Cumi Goreng">
-            <img src="gambar/udang.jpg" alt="Udang Saus Padang">
-            <img src="gambar/kerang.jpg" alt="Kerang Dara">
-            <img src="gambar/nasi.jpg" alt="Nasi Putih">
-            <img src="gambar/esteh.jpg" alt="Es Teh Manis">
+            <img src="cumi.jpg" alt="Cumi Goreng">
+            <img src="udang.jpg" alt="Udang Saus Padang">
+            <img src="kerang.jpg" alt="Kerang Dara">
+            <img src="nasi.jpg" alt="Nasi Putih">
+            <img src="esteh.jpg" alt="Es Teh Manis">
+            <video controls preload="metadata">
+                <source src="video.mp4" type="video/mp4">
+                Browser Anda tidak mendukung pemutaran video.
+            </video>
         </div>
     </section>
 
