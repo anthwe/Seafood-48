@@ -1,36 +1,48 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8"> <!-- Menentukan karakter halaman -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Membuat tampilan responsif -->
-    <title>Seafood 48 - Restoran Seafood</title> <!-- Judul halaman -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seafood 48 - Restoran Seafood</title>
 
     <style>
-        /* Mengatur seluruh halaman */
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
-        /* Mengatur tampilan body */
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             color: #222;
         }
 
-        /* ================= NAVBAR ================= */
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
         nav {
             width: 100%;
             background-color: #111;
             position: fixed;
             top: 0;
+            left: 0;
             z-index: 1000;
+
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
 
@@ -63,33 +75,63 @@
             text-decoration: none;
             margin-left: 25px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .nav-menu a:hover {
             color: #00bcd4;
         }
 
-        /* ================= HERO ================= */
+        .nav-menu a.active {
+            color: #00bcd4;
+        }
+
+
+        /* =====================================================
+           KONTEN
+        ===================================================== */
+
+        main {
+            padding-top: 70px;
+        }
+
+        .page {
+            display: none;
+            min-height: calc(100vh - 70px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+
+        /* =====================================================
+           HOME
+        ===================================================== */
 
         .hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.65),
-                    rgba(0, 0, 0, 0.65)),
+            min-height: calc(100vh - 70px);
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+                ),
                 url("logo.png");
 
             background-size: cover;
             background-position: center;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            padding: 100px 20px 50px;
+            padding: 50px 20px;
         }
 
-        .hero-table {
-            width: 90%;
+        .hero-content {
             max-width: 900px;
-            margin: auto;
         }
 
         .hero h1 {
@@ -105,24 +147,33 @@
         .hero p {
             color: white;
             font-size: 20px;
+            line-height: 1.6;
             margin-bottom: 30px;
         }
 
         .btn {
             display: inline-block;
+
             background-color: #00bcd4;
             color: white;
+
             padding: 14px 25px;
+
             text-decoration: none;
             border-radius: 8px;
+
             font-weight: bold;
+            cursor: pointer;
         }
 
         .btn:hover {
             background-color: #008fa1;
         }
 
-        /* ================= UMUM ================= */
+
+        /* =====================================================
+           UMUM
+        ===================================================== */
 
         section {
             padding: 80px 8%;
@@ -139,11 +190,20 @@
             color: #00a5bd;
         }
 
-        /* ================= PROMO ================= */
+
+        /* =====================================================
+           PROMO
+        ===================================================== */
 
         .promo-section {
             background-color: white;
+            min-height: calc(100vh - 70px);
         }
+
+
+        /* =====================================================
+           TABEL PROMO UTAMA
+        ===================================================== */
 
         .promo-table {
             width: 100%;
@@ -153,11 +213,16 @@
 
         .promo-table td {
             width: 33.33%;
+
             background-color: #111;
             color: white;
+
             padding: 30px;
+
             text-align: center;
+
             border-radius: 12px;
+
             vertical-align: top;
         }
 
@@ -174,10 +239,100 @@
             margin-top: 15px;
         }
 
-        /* ================= MENU ================= */
+
+        /* =====================================================
+           INFORMASI & KETENTUAN PROMO
+        ===================================================== */
+
+        .info-promo {
+            width: 100%;
+
+            margin-top: 35px;
+
+            background-color: #fffaf0;
+
+            border: 1px solid #e5d5b5;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-promo-title {
+            padding: 22px 25px;
+
+            background-color: #21170f;
+
+            color: #d9b44a;
+
+            font-size: 24px;
+
+            font-weight: bold;
+        }
+
+        .info-promo table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-promo th {
+            background-color: #2a1d14;
+
+            color: #e5c45a;
+
+            padding: 16px 15px;
+
+            text-align: left;
+
+            font-size: 14px;
+        }
+
+        .info-promo td {
+            padding: 16px 15px;
+
+            border-bottom: 1px solid #eadfc9;
+
+            color: #55483c;
+
+            line-height: 1.5;
+        }
+
+        .info-promo tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-promo tr:hover td {
+            background-color: #fff6df;
+        }
+
+        .info-promo .promo-name {
+            font-weight: bold;
+            color: #3d3027;
+        }
+
+        .catatan {
+            padding: 18px 25px;
+
+            background-color: #f8f0df;
+
+            color: #6b5b4b;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           MENU
+        ===================================================== */
 
         .menu-section {
             background-color: #eeeeee;
+            min-height: calc(100vh - 70px);
         }
 
         .menu-table {
@@ -188,17 +343,25 @@
 
         .menu-table td {
             width: 33.33%;
+
             background-color: white;
+
             border-radius: 12px;
+
             overflow: hidden;
+
             vertical-align: top;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.12);
         }
 
         .menu-table img {
             width: 100%;
             height: 220px;
+
             object-fit: cover;
+
             display: block;
         }
 
@@ -213,41 +376,57 @@
 
         .menu-content p {
             color: #666;
+
+            line-height: 1.5;
+
             margin-bottom: 15px;
         }
 
         .price {
             color: #00a5bd;
+
             font-size: 20px;
+
             font-weight: bold;
         }
 
-        /* ================= ABOUT ================= */
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
 
         .about {
             background-color: white;
+            min-height: calc(100vh - 70px);
         }
 
         .about-table {
             width: 100%;
+
             border-collapse: separate;
+
             border-spacing: 30px;
         }
 
         .about-table td {
             width: 50%;
+
             vertical-align: middle;
         }
 
         .about-table img {
             width: 100%;
+
             max-height: 400px;
+
             object-fit: cover;
+
             border-radius: 15px;
         }
 
         .about-text h2 {
             font-size: 35px;
+
             margin-bottom: 20px;
         }
 
@@ -257,62 +436,94 @@
 
         .about-text p {
             line-height: 1.8;
+
             color: #555;
+
             margin-bottom: 15px;
         }
 
-        /* ================= GALLERY ================= */
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
 
         .gallery {
             background-color: #eeeeee;
+
+            min-height: calc(100vh - 70px);
         }
 
         .gallery-table {
             width: 100%;
+
             border-collapse: separate;
+
             border-spacing: 15px;
         }
 
         .gallery-table td {
             width: 33.33%;
+
             vertical-align: top;
         }
 
         .gallery-table img,
         .gallery-table video {
             width: 100%;
+
             height: 250px;
+
             object-fit: cover;
+
             border-radius: 12px;
         }
 
-        /* ================= CONTACT ================= */
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
 
         .contact {
             background-color: white;
+
+            min-height: calc(100vh - 70px);
         }
 
         .contact-table {
             width: 100%;
+
             border-collapse: separate;
+
             border-spacing: 20px;
         }
 
         .contact-table td {
             width: 33.33%;
+
             text-align: center;
+
             padding: 30px;
+
             background-color: #f5f5f5;
+
             border-radius: 12px;
+
+            vertical-align: top;
         }
 
         .contact-table h3 {
             color: #00a5bd;
+
             margin-bottom: 15px;
+        }
+
+        .contact-table p {
+            line-height: 1.6;
         }
 
         .contact-table a {
             color: #222;
+
             text-decoration: none;
         }
 
@@ -320,54 +531,77 @@
             color: #00a5bd;
         }
 
-        /* ================= FOOTER ================= */
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
         footer {
             background-color: #111;
+
             color: white;
-            padding: 50px 8% 20px;
+
+            padding: 40px 8% 20px;
         }
 
         .footer-table {
             width: 100%;
+
             border-collapse: collapse;
         }
 
         .footer-table td {
             width: 33.33%;
+
             vertical-align: top;
+
             padding: 20px;
         }
 
         .footer-table h3 {
             color: #00bcd4;
+
             margin-bottom: 15px;
         }
 
         .footer-table p {
             color: #ccc;
+
             line-height: 1.7;
         }
 
         .footer-table a {
             display: block;
+
             color: #ccc;
+
             text-decoration: none;
+
             margin-bottom: 10px;
+
+            cursor: pointer;
         }
 
         .footer-table a:hover {
             color: #00bcd4;
         }
 
-        /* ================= TANDA KEPEMILIKAN ================= */
+
+        /* =====================================================
+           COPYRIGHT
+        ===================================================== */
 
         .copyright {
             text-align: center;
+
             border-top: 1px solid #444;
+
             margin-top: 30px;
+
             padding-top: 20px;
+
             color: #aaa;
+
             line-height: 1.8;
         }
 
@@ -375,7 +609,10 @@
             color: white;
         }
 
-        /* ================= RESPONSIVE ================= */
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
 
         @media (max-width: 768px) {
 
@@ -384,12 +621,15 @@
             .nav-table tr,
             .nav-table td {
                 display: block;
+
                 width: 100%;
+
                 text-align: center;
             }
 
             .nav-menu a {
                 display: inline-block;
+
                 margin: 5px;
             }
 
@@ -401,27 +641,34 @@
             .promo-table tbody,
             .promo-table tr,
             .promo-table td,
+
             .menu-table,
             .menu-table tbody,
             .menu-table tr,
             .menu-table td,
+
             .about-table,
             .about-table tbody,
             .about-table tr,
             .about-table td,
+
             .gallery-table,
             .gallery-table tbody,
             .gallery-table tr,
             .gallery-table td,
+
             .contact-table,
             .contact-table tbody,
             .contact-table tr,
             .contact-table td,
+
             .footer-table,
             .footer-table tbody,
             .footer-table tr,
             .footer-table td {
+
                 display: block;
+
                 width: 100%;
             }
 
@@ -430,6 +677,7 @@
             .about-table,
             .gallery-table,
             .contact-table {
+
                 border-spacing: 0;
             }
 
@@ -438,47 +686,105 @@
             .about-table td,
             .gallery-table td,
             .contact-table td {
+
                 margin-bottom: 20px;
             }
 
             .footer-table td {
                 margin-bottom: 20px;
             }
+
+            /* Tabel informasi promo tetap bisa digeser */
+            .info-promo {
+                overflow-x: auto;
+            }
+
+            .info-promo table {
+                min-width: 750px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
 
     <nav>
+
         <table class="nav-table">
+
             <tr>
+
                 <td>
+
                     <div class="logo-text">
                         Seafood <span>48</span>
                     </div>
+
                 </td>
+
 
                 <td class="nav-menu">
-                    <a href="#home">Home</a>
-                    <a href="#promo">Promo</a>
-                    <a href="#menu">Menu</a>
-                    <a href="#about">About</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#contact">Contact</a>
+
+                    <a onclick="showPage('home', this)" class="active">
+                        Home
+                    </a>
+
+                    <a onclick="showPage('promo', this)">
+                        Promo
+                    </a>
+
+                    <a onclick="showPage('menu', this)">
+                        Menu
+                    </a>
+
+                    <a onclick="showPage('about', this)">
+                        About
+                    </a>
+
+                    <a onclick="showPage('gallery', this)">
+                        Gallery
+                    </a>
+
+                    <a onclick="showPage('contact', this)">
+                        Contact
+                    </a>
+
                 </td>
+
             </tr>
+
         </table>
+
     </nav>
 
-    <!-- ================= HERO ================= -->
 
-    <section class="hero" id="home">
-        <table class="hero-table">
-            <tr>
-                <td>
+
+    <!-- =====================================================
+         KONTEN
+    ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HOME
+        ================================================= -->
+
+        <div id="home" class="page active">
+
+            <section class="hero">
+
+                <div class="hero-content">
+
                     <h1>
                         Selamat Datang di
                         <span>Seafood 48</span>
@@ -489,392 +795,917 @@
                         dengan cita rasa yang lezat dan harga terjangkau.
                     </p>
 
-                    <a href="#menu" class="btn">
+                    <a
+                        class="btn"
+                        onclick="showPageById('menu')">
+
                         Lihat Menu
+
                     </a>
-                </td>
-            </tr>
-        </table>
-    </section>
 
-    <!-- ================= PROMO ================= -->
+                </div>
 
-    <section class="promo-section" id="promo">
+            </section>
 
-        <h2 class="section-title">
-            Promo <span>Spesial</span>
-        </h2>
+        </div>
 
-        <table class="promo-table">
 
-            <tr>
 
-                <td>
-                    <h3>🔥 Paket Hemat</h3>
+        <!-- =================================================
+             PROMO
+        ================================================= -->
 
-                    <p>
-                        Cumi goreng tepung + nasi putih +
-                        es teh manis.
-                    </p>
+        <div id="promo" class="page">
 
-                    <div class="promo-price">
-                        Rp 45.000
+            <section class="promo-section">
+
+                <h2 class="section-title">
+                    Promo <span>Spesial</span>
+                </h2>
+
+
+                <!-- ================================
+                     TABEL PROMO UTAMA
+                ================================= -->
+
+                <table class="promo-table">
+
+                    <tr>
+
+
+                        <!-- Paket Hemat -->
+
+                        <td>
+
+                            <h3>
+                                🔥 Paket Hemat
+                            </h3>
+
+                            <p>
+                                Cumi goreng tepung +
+                                nasi putih +
+                                es teh manis.
+                            </p>
+
+                            <div class="promo-price">
+                                Rp 45.000
+                            </div>
+
+                        </td>
+
+
+                        <!-- Paket Keluarga -->
+
+                        <td>
+
+                            <h3>
+                                👨‍👩‍👧‍👦 Paket Keluarga
+                            </h3>
+
+                            <p>
+                                Paket seafood untuk keluarga
+                                dengan pilihan menu yang lengkap.
+                            </p>
+
+                            <div class="promo-price">
+                                Mulai Rp 100.000
+                            </div>
+
+                        </td>
+
+
+                        <!-- Weekend Special -->
+
+                        <td>
+
+                            <h3>
+                                ⭐ Weekend Special
+                            </h3>
+
+                            <p>
+                                Dapatkan potongan harga
+                                khusus setiap akhir pekan.
+                            </p>
+
+                            <div class="promo-price">
+                                Diskon 10%
+                            </div>
+
+                        </td>
+
+
+                    </tr>
+
+                </table>
+
+
+
+                <!-- =================================================
+                     TABEL INFORMASI & KETENTUAN PROMO
+                ================================================= -->
+
+                <div class="info-promo">
+
+
+                    <div class="info-promo-title">
+
+                        Informasi & Ketentuan Promo
+
                     </div>
-                </td>
 
-                <td>
-                    <h3>👨‍👩‍👧‍👦 Paket Keluarga</h3>
 
-                    <p>
-                        Paket seafood untuk keluarga
-                        dengan pilihan menu yang lengkap.
-                    </p>
 
-                    <div class="promo-price">
-                        Mulai Rp 100.000
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    NO
+                                </th>
+
+                                <th>
+                                    PROGRAM PROMO
+                                </th>
+
+                                <th>
+                                    DETAIL PROMO
+                                </th>
+
+                                <th>
+                                    PERIODE
+                                </th>
+
+                                <th>
+                                    KETENTUAN
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <!-- BARIS 1 -->
+
+                            <tr>
+
+                                <td>
+                                    1
+                                </td>
+
+                                <td class="promo-name">
+                                    Paket Hemat
+                                </td>
+
+                                <td>
+                                    Nikmati menu favorit
+                                    dengan harga paket
+                                    yang lebih hemat.
+                                </td>
+
+                                <td>
+                                    Setiap Hari
+                                </td>
+
+                                <td>
+                                    Berlaku selama
+                                    persediaan tersedia.
+                                </td>
+
+                            </tr>
+
+
+                            <!-- BARIS 2 -->
+
+                            <tr>
+
+                                <td>
+                                    2
+                                </td>
+
+                                <td class="promo-name">
+                                    Paket Keluarga
+                                </td>
+
+                                <td>
+                                    Paket lengkap untuk
+                                    makan bersama keluarga
+                                    atau teman.
+                                </td>
+
+                                <td>
+                                    Setiap Hari
+                                </td>
+
+                                <td>
+                                    Maksimal 1 promo
+                                    dalam satu transaksi.
+                                </td>
+
+                            </tr>
+
+
+                            <!-- BARIS 3 -->
+
+                            <tr>
+
+                                <td>
+                                    3
+                                </td>
+
+                                <td class="promo-name">
+                                    Weekend Special
+                                </td>
+
+                                <td>
+                                    Dapatkan potongan harga
+                                    khusus pada akhir pekan.
+                                </td>
+
+                                <td>
+                                    Sabtu - Minggu
+                                </td>
+
+                                <td>
+                                    Tidak dapat digabung
+                                    dengan promo lain.
+                                </td>
+
+                            </tr>
+
+
+                            <!-- BARIS 4 -->
+
+                            <tr>
+
+                                <td>
+                                    4
+                                </td>
+
+                                <td class="promo-name">
+                                    Promo Member
+                                </td>
+
+                                <td>
+                                    Dapatkan harga khusus
+                                    untuk pelanggan member.
+                                </td>
+
+                                <td>
+                                    Setiap Hari
+                                </td>
+
+                                <td>
+                                    Tunjukkan akun member
+                                    saat pemesanan.
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+
+
+                    <!-- CATATAN -->
+
+                    <div class="catatan">
+
+                        <strong>Catatan:</strong>
+
+                        Semua promo berlaku sesuai ketentuan
+                        yang tercantum. Promo dapat berubah
+                        sewaktu-waktu tanpa pemberitahuan sebelumnya.
+
                     </div>
-                </td>
 
-                <td>
-                    <h3>⭐ Weekend Special</h3>
 
-                    <p>
-                        Dapatkan potongan harga
-                        khusus setiap akhir pekan.
-                    </p>
+                </div>
 
-                    <div class="promo-price">
-                        Diskon 10%
-                    </div>
-                </td>
 
-            </tr>
+            </section>
 
-        </table>
-    </section>
+        </div>
 
-    <!-- ================= MENU ================= -->
 
-    <section class="menu-section" id="menu">
 
-        <h2 class="section-title">
-            Daftar <span>Menu</span>
-        </h2>
+        <!-- =================================================
+             MENU
+        ================================================= -->
 
-        <table class="menu-table">
+        <div id="menu" class="page">
 
-            <!-- BARIS MENU 1 -->
+            <section class="menu-section">
 
-            <tr>
+                <h2 class="section-title">
+                    Daftar <span>Menu</span>
+                </h2>
 
-                <td>
-                    <img src="cumi.jpg" alt="Cumi Goreng Tepung">
 
-                    <div class="menu-content">
-                        <h3>Cumi Goreng Tepung</h3>
+                <table class="menu-table">
 
-                        <p>
-                            Cumi segar dengan balutan tepung
-                            yang renyah dan gurih.
-                        </p>
+                    <!-- BARIS 1 -->
 
-                        <div class="price">
-                            Rp 35.000
-                        </div>
-                    </div>
-                </td>
+                    <tr>
 
-                <td>
-                    <img src="udang.jpg" alt="Udang Saus Padang">
 
-                    <div class="menu-content">
-                        <h3>Udang Saus Padang</h3>
+                        <!-- Cumi -->
 
-                        <p>
-                            Udang segar dengan saus Padang
-                            yang pedas dan nikmat.
-                        </p>
+                        <td>
 
-                        <div class="price">
-                            Rp 45.000
-                        </div>
-                    </div>
-                </td>
+                            <img
+                                src="cumi.jpg"
+                                alt="Cumi Goreng Tepung">
 
-                <td>
-                    <img src="kerang.jpg" alt="Kerang Dara">
+                            <div class="menu-content">
 
-                    <div class="menu-content">
-                        <h3>Kerang Dara</h3>
+                                <h3>
+                                    Cumi Goreng Tepung
+                                </h3>
 
-                        <p>
-                            Kerang dara segar dengan
-                            bumbu khas Seafood 48.
-                        </p>
+                                <p>
+                                    Cumi segar dengan
+                                    balutan tepung yang
+                                    renyah dan gurih.
+                                </p>
 
-                        <div class="price">
-                            Rp 30.000
-                        </div>
-                    </div>
-                </td>
+                                <div class="price">
+                                    Rp 35.000
+                                </div>
 
-            </tr>
+                            </div>
 
-            <!-- BARIS MENU 2 -->
+                        </td>
 
-            <tr>
 
-                <td>
-                    <img src="nasi.jpg" alt="Nasi Putih">
+                        <!-- Udang -->
 
-                    <div class="menu-content">
-                        <h3>Nasi Putih</h3>
+                        <td>
 
-                        <p>
-                            Nasi putih hangat sebagai
-                            pelengkap hidangan seafood.
-                        </p>
+                            <img
+                                src="udang.jpg"
+                                alt="Udang Saus Padang">
 
-                        <div class="price">
-                            Rp 6.000
-                        </div>
-                    </div>
-                </td>
+                            <div class="menu-content">
 
-                <td>
-                    <img src="esteh.jpg" alt="Es Teh Manis">
+                                <h3>
+                                    Udang Saus Padang
+                                </h3>
 
-                    <div class="menu-content">
-                        <h3>Es Teh Manis</h3>
+                                <p>
+                                    Udang segar dengan
+                                    saus Padang yang
+                                    pedas dan nikmat.
+                                </p>
 
-                        <p>
-                            Minuman teh manis dingin
-                            yang menyegarkan.
-                        </p>
+                                <div class="price">
+                                    Rp 45.000
+                                </div>
 
-                        <div class="price">
-                            Rp 5.000
-                        </div>
-                    </div>
-                </td>
+                            </div>
 
-                <td>
-                    <img src="Kepiting.jpg" alt="Kepiting Saus Padang">
+                        </td>
 
-                    <div class="menu-content">
-                        <h3>Kepiting Saus Padang</h3>
 
-                        <p>
-                            Dua ekor kepiting dengan saus Padang
-                            yang pedas, gurih, dan nikmat.
-                        </p>
+                        <!-- Kerang -->
 
-                        <div class="price">
-                            Rp 175.000
-                        </div>
-                    </div>
-                </td>
+                        <td>
 
-            </tr>
+                            <img
+                                src="kerang.jpg"
+                                alt="Kerang Dara">
 
-        </table>
-    </section>
+                            <div class="menu-content">
 
-    <!-- ================= ABOUT ================= -->
+                                <h3>
+                                    Kerang Dara
+                                </h3>
 
-    <section class="about" id="about">
+                                <p>
+                                    Kerang dara segar
+                                    dengan bumbu khas
+                                    Seafood 48.
+                                </p>
 
-        <table class="about-table">
+                                <div class="price">
+                                    Rp 30.000
+                                </div>
 
-            <tr>
+                            </div>
 
-                <td>
-                    <img src="logo.png" alt="Seafood 48">
-                </td>
+                        </td>
 
-                <td class="about-text">
 
-                    <h2>
-                        Tentang <span>Seafood 48</span>
-                    </h2>
+                    </tr>
 
-                    <p>
-                        Seafood 48 merupakan restoran yang
-                        menyediakan berbagai hidangan seafood
-                        dengan bahan yang segar dan berkualitas.
-                    </p>
 
-                    <p>
-                        Kami berusaha memberikan rasa yang lezat,
-                        pelayanan yang ramah, serta harga yang
-                        terjangkau bagi pelanggan.
-                    </p>
+                    <!-- BARIS 2 -->
 
-                    <p>
-                        Cocok untuk makan bersama keluarga,
-                        teman maupun acara bersama.
-                    </p>
+                    <tr>
 
-                </td>
 
-            </tr>
+                        <!-- Nasi -->
 
-        </table>
-    </section>
+                        <td>
 
-    <!-- ================= GALLERY ================= -->
+                            <img
+                                src="nasi.jpg"
+                                alt="Nasi Putih">
 
-    <section class="gallery" id="gallery">
+                            <div class="menu-content">
 
-        <h2 class="section-title">
-            <span>Gallery</span> Seafood 48
-        </h2>
+                                <h3>
+                                    Nasi Putih
+                                </h3>
 
-        <table class="gallery-table">
+                                <p>
+                                    Nasi putih hangat
+                                    sebagai pelengkap
+                                    hidangan seafood.
+                                </p>
 
-            <tr>
+                                <div class="price">
+                                    Rp 6.000
+                                </div>
 
-                <td>
-                    <img src="cumi.jpg" alt="Cumi">
-                </td>
+                            </div>
 
-                <td>
-                    <img src="udang.jpg" alt="Udang">
-                </td>
+                        </td>
 
-                <td>
-                    <img src="kerang.jpg" alt="Kerang">
-                </td>
 
-            </tr>
+                        <!-- Es Teh -->
 
-            <tr>
+                        <td>
 
-                <td>
-                    <img src="nasi.jpg" alt="Nasi">
-                </td>
+                            <img
+                                src="esteh.jpg"
+                                alt="Es Teh Manis">
 
-                <td>
-                    <img src="esteh.jpg" alt="Es Teh">
-                </td>
+                            <div class="menu-content">
 
-                <td>
-                    <video controls>
-                        <source src="video.mp4" type="video/mp4">
-                        Browser Anda tidak mendukung video.
-                    </video>
-                </td>
+                                <h3>
+                                    Es Teh Manis
+                                </h3>
 
-            </tr>
+                                <p>
+                                    Minuman teh manis
+                                    dingin yang
+                                    menyegarkan.
+                                </p>
 
-        </table>
-    </section>
+                                <div class="price">
+                                    Rp 5.000
+                                </div>
 
-    <!-- ================= CONTACT ================= -->
+                            </div>
 
-    <section class="contact" id="contact">
+                        </td>
 
-        <h2 class="section-title">
-            <span>Contact</span> Us
-        </h2>
 
-        <table class="contact-table">
+                        <!-- Kepiting -->
 
-            <tr>
+                        <td>
 
-                <td>
-                    <h3>📍 Alamat</h3>
+                            <img
+                                src="kepiting.jpg"
+                                alt="Kepiting Saus Padang">
 
-                    <p>
-                        Jl. Raya Serpong Kilometer 7 No.89-2,
-                        Lengkong Karya, Kec. Serpong Utara,
-                        Kota Tangerang Selatan, Banten 15326
-                    </p>
-                </td>
+                            <div class="menu-content">
 
-                <td>
-                    <h3>📞 WhatsApp</h3>
+                                <h3>
+                                    Kepiting Saus Padang
+                                </h3>
 
-                    <p>
-                        <a href="https://wa.me/6281234567890" target="_blank">
-                            Hubungi Kami melalui WhatsApp
-                        </a>
-                    </p>
-                </td>
+                                <p>
+                                    Dua ekor kepiting
+                                    dengan saus Padang
+                                    yang pedas, gurih,
+                                    dan nikmat.
+                                </p>
 
-                <td>
-                    <h3>📱 Instagram</h3>
+                                <div class="price">
+                                    Rp 175.000
+                                </div>
 
-                    <p>
-                        <a href="https://www.instagram.com/" target="_blank">
-                            @seafood48
-                        </a>
-                    </p>
-                </td>
+                            </div>
 
-            </tr>
+                        </td>
 
-        </table>
-    </section>
 
-    <!-- ================= FOOTER ================= -->
+                    </tr>
+
+                </table>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================= -->
+
+        <div id="about" class="page">
+
+            <section class="about">
+
+                <table class="about-table">
+
+                    <tr>
+
+                        <td>
+
+                            <img
+                                src="logo.png"
+                                alt="Seafood 48">
+
+                        </td>
+
+
+                        <td class="about-text">
+
+                            <h2>
+                                Tentang
+                                <span>Seafood 48</span>
+                            </h2>
+
+                            <p>
+                                Seafood 48 merupakan restoran
+                                yang menyediakan berbagai
+                                hidangan seafood dengan bahan
+                                yang segar dan berkualitas.
+                            </p>
+
+                            <p>
+                                Kami berusaha memberikan rasa
+                                yang lezat, pelayanan yang ramah,
+                                serta harga yang terjangkau
+                                bagi pelanggan.
+                            </p>
+
+                            <p>
+                                Cocok untuk makan bersama
+                                keluarga, teman maupun acara
+                                bersama.
+                            </p>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GALLERY
+        ================================================= -->
+
+        <div id="gallery" class="page">
+
+            <section class="gallery">
+
+                <h2 class="section-title">
+                    <span>Gallery</span> Seafood 48
+                </h2>
+
+
+                <table class="gallery-table">
+
+
+                    <!-- BARIS 1 -->
+
+                    <tr>
+
+                        <td>
+
+                            <img
+                                src="cumi.jpg"
+                                alt="Cumi">
+
+                        </td>
+
+                        <td>
+
+                            <img
+                                src="udang.jpg"
+                                alt="Udang">
+
+                        </td>
+
+                        <td>
+
+                            <img
+                                src="kerang.jpg"
+                                alt="Kerang">
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- BARIS 2 -->
+
+                    <tr>
+
+                        <td>
+
+                            <img
+                                src="nasi.jpg"
+                                alt="Nasi">
+
+                        </td>
+
+                        <td>
+
+                            <img
+                                src="esteh.jpg"
+                                alt="Es Teh">
+
+                        </td>
+
+                        <td>
+
+                            <img
+                                src="kepiting.jpg"
+                                alt="Kepiting Saus Padang">
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- VIDEO -->
+
+                    <tr>
+
+                        <td colspan="3">
+
+                            <video controls>
+
+                                <source
+                                    src="video.mp4"
+                                    type="video/mp4">
+
+                                Browser Anda
+                                tidak mendukung video.
+
+                            </video>
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================= -->
+
+        <div id="contact" class="page">
+
+            <section class="contact">
+
+                <h2 class="section-title">
+                    <span>Contact</span> Us
+                </h2>
+
+
+                <table class="contact-table">
+
+                    <tr>
+
+
+                        <!-- ALAMAT -->
+
+                        <td>
+
+                            <h3>
+                                📍 Alamat
+                            </h3>
+
+                            <p>
+                                Jl. Raya Serpong Kilometer 7
+                                No.89-2, Lengkong Karya,
+                                Kec. Serpong Utara,
+                                Kota Tangerang Selatan,
+                                Banten 15326
+                            </p>
+
+                        </td>
+
+
+                        <!-- WHATSAPP -->
+
+                        <td>
+
+                            <h3>
+                                📞 WhatsApp
+                            </h3>
+
+                            <p>
+
+                                <a
+                                    href="https://wa.me/6281234567890"
+                                    target="_blank">
+
+                                    Hubungi Kami
+                                    melalui WhatsApp
+
+                                </a>
+
+                            </p>
+
+                        </td>
+
+
+                        <!-- INSTAGRAM -->
+
+                        <td>
+
+                            <h3>
+                                📱 Instagram
+                            </h3>
+
+                            <p>
+
+                                <a
+                                    href="https://www.instagram.com/"
+                                    target="_blank">
+
+                                    @seafood48
+
+                                </a>
+
+                            </p>
+
+                        </td>
+
+
+                    </tr>
+
+                </table>
+
+            </section>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
 
     <footer>
+
 
         <table class="footer-table">
 
             <tr>
 
+
+                <!-- INFORMASI -->
+
                 <td>
-                    <h3>Seafood 48</h3>
+
+                    <h3>
+                        Seafood 48
+                    </h3>
 
                     <p>
-                        Fresh Seafood, Delicious Taste.
+                        Fresh Seafood,
+                        Delicious Taste.
                     </p>
 
                     <p>
-                        Nikmati seafood segar dengan
-                        cita rasa terbaik.
+                        Nikmati seafood segar
+                        dengan cita rasa terbaik.
                     </p>
+
                 </td>
 
-                <td>
-                    <h3>Quick Links</h3>
 
-                    <a href="#home">Home</a>
-                    <a href="#promo">Promo</a>
-                    <a href="#menu">Menu</a>
-                    <a href="#about">About</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#contact">Contact</a>
+                <!-- QUICK LINKS -->
+
+                <td>
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <a
+                        onclick="showPageById('home')">
+
+                        Home
+
+                    </a>
+
+                    <a
+                        onclick="showPageById('promo')">
+
+                        Promo
+
+                    </a>
+
+                    <a
+                        onclick="showPageById('menu')">
+
+                        Menu
+
+                    </a>
+
+                    <a
+                        onclick="showPageById('about')">
+
+                        About
+
+                    </a>
+
+                    <a
+                        onclick="showPageById('gallery')">
+
+                        Gallery
+
+                    </a>
+
+                    <a
+                        onclick="showPageById('contact')">
+
+                        Contact
+
+                    </a>
+
                 </td>
 
-                <td>
-                    <h3>Social Media</h3>
 
-                    <a href="https://www.instagram.com/" target="_blank">
+                <!-- SOCIAL MEDIA -->
+
+                <td>
+
+                    <h3>
+                        Social Media
+                    </h3>
+
+                    <a
+                        href="https://www.instagram.com/"
+                        target="_blank">
+
                         Instagram
+
                     </a>
 
-                    <a href="https://wa.me/6281234567890" target="_blank">
+                    <a
+                        href="https://wa.me/6281234567890"
+                        target="_blank">
+
                         WhatsApp
+
                     </a>
+
                 </td>
+
 
             </tr>
 
         </table>
 
-        <!-- TANDA KEPEMILIKAN WEBSITE -->
+
+
+        <!-- =================================================
+             COPYRIGHT
+        ================================================= -->
 
         <div class="copyright">
 
             <p>
-                © 2026 <strong>Seafood 48</strong>
+                © 2026
+                <strong>Seafood 48</strong>
             </p>
 
             <p>
-                Website ini adalah milik Seafood 48.
+                Website ini adalah milik
+                Seafood 48.
             </p>
 
             <p>
@@ -883,9 +1714,124 @@
 
         </div>
 
+
     </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =================================================
+           FUNGSI MENAMPILKAN HALAMAN
+        ================================================= */
+
+        function showPage(pageId, clickedButton) {
+
+
+            /* Mengambil semua halaman */
+
+            const pages =
+                document.querySelectorAll(".page");
+
+
+            /* Menyembunyikan semua halaman */
+
+            pages.forEach(function(page) {
+
+                page.classList.remove("active");
+
+            });
+
+
+            /* Menampilkan halaman yang dipilih */
+
+            document
+                .getElementById(pageId)
+                .classList.add("active");
+
+
+            /* Mengambil semua tombol navbar */
+
+            const navButtons =
+                document.querySelectorAll(".nav-menu a");
+
+
+            /* Menghapus status active */
+
+            navButtons.forEach(function(button) {
+
+                button.classList.remove("active");
+
+            });
+
+
+            /* Memberikan status active
+               pada tombol yang diklik */
+
+            if (clickedButton) {
+
+                clickedButton.classList.add("active");
+
+            }
+
+
+            /* Kembali ke posisi paling atas */
+
+            window.scrollTo(0, 0);
+
+        }
+
+
+
+        /* =================================================
+           FUNGSI TOMBOL LIHAT MENU
+        ================================================= */
+
+        function showPageById(pageId) {
+
+
+            /* Mengambil semua tombol navbar */
+
+            const navButtons =
+                document.querySelectorAll(".nav-menu a");
+
+
+            /* Mencari tombol sesuai halaman */
+
+            navButtons.forEach(function(button) {
+
+
+                /* Mengecek teks tombol */
+
+                if (
+                    button.textContent
+                        .trim()
+                        .toLowerCase()
+                    === pageId
+                ) {
+
+
+                    /* Menampilkan halaman */
+
+                    showPage(
+                        pageId,
+                        button
+                    );
+
+                }
+
+            });
+
+        }
+
+    </script>
+
 
 </body>
 
 </html>
-```
