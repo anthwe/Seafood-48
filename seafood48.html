@@ -1,379 +1,1163 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seafood 48 - Restoran Seafood</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f5f5f5;color:#222}
-nav{width:100%;background:#111;position:fixed;top:0;left:0;z-index:1000;box-shadow:0 3px 10px rgba(0,0,0,.3)}
-.nav-table{width:90%;margin:auto;border-collapse:collapse}
-.nav-table td{padding:18px 10px}
-.logo-text{color:#fff;font-size:25px;font-weight:bold;white-space:nowrap}
-.logo-text span{color:#00bcd4}
-.nav-menu{text-align:right}
-.nav-menu a{color:#fff;text-decoration:none;margin-left:16px;font-weight:bold;cursor:pointer;display:inline-block}
-.nav-menu a:hover,.nav-menu a.active{color:#00bcd4}
-main{padding-top:70px}
-.page{display:none;min-height:calc(100vh - 70px)}
-.page.active{display:block}
-.hero{min-height:calc(100vh - 70px);background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url("logo.png");background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px 20px}
-.hero-content{max-width:900px}
-.hero h1{color:#fff;font-size:55px;margin-bottom:20px}
-.hero h1 span{color:#00bcd4}
-.hero p{color:#fff;font-size:20px;line-height:1.6;margin-bottom:30px}
-.btn{display:inline-block;background:#00bcd4;color:#fff;padding:14px 25px;text-decoration:none;border:0;border-radius:8px;font-weight:bold;cursor:pointer}
-.btn:hover{background:#008fa1}
-section{padding:80px 8%}
-.section-title{text-align:center;font-size:35px;margin-bottom:40px;color:#111}
-.section-title span{color:#00a5bd}
-.promo-section,.about,.contact{background:#fff;min-height:calc(100vh - 70px)}
-.promo-table,.menu-table,.gallery-table,.contact-table,.about-table,.footer-table{width:100%;border-collapse:separate;border-spacing:20px}
-.promo-table td{width:33.33%;background:#111;color:#fff;padding:30px;text-align:center;border-radius:12px;vertical-align:top}
-.promo-table h3{color:#00bcd4;font-size:24px;margin-bottom:15px}
-.promo-price{color:#ffd54f;font-size:22px;font-weight:bold;margin-top:15px}
-.info-promo{width:100%;margin-top:35px;background:#fffaf0;border:1px solid #e5d5b5;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.08)}
-.info-promo-title{padding:22px 25px;background:#21170f;color:#d9b44a;font-size:24px;font-weight:bold}
-.info-promo table{width:100%;border-collapse:collapse}
-.info-promo th{background:#2a1d14;color:#e5c45a;padding:16px 15px;text-align:left;font-size:14px}
-.info-promo td{padding:16px 15px;border-bottom:1px solid #eadfc9;color:#55483c;line-height:1.5}
-.info-promo tr:last-child td{border-bottom:none}
-.info-promo tr:hover td{background:#fff6df}
-.info-promo .promo-name{font-weight:bold;color:#3d3027}
-.catatan{padding:18px 25px;background:#f8f0df;color:#6b5b4b;font-size:14px;line-height:1.6}
-.menu-section,.gallery{background:#eee;min-height:calc(100vh - 70px)}
-.menu-table td{width:33.33%;background:#fff;border-radius:12px;overflow:hidden;vertical-align:top;box-shadow:0 5px 15px rgba(0,0,0,.12)}
-.menu-table img{width:100%;height:220px;object-fit:cover;display:block}
-.menu-content{padding:20px}
-.menu-content h3{font-size:22px;margin-bottom:10px}
-.menu-content p{color:#666;line-height:1.5;margin-bottom:15px}
-.price{color:#00a5bd;font-size:20px;font-weight:bold}
-.about-table td{width:50%;vertical-align:middle}
-.about-table img{width:100%;max-height:400px;object-fit:cover;border-radius:15px}
-.about-text h2{font-size:35px;margin-bottom:20px}
-.about-text h2 span{color:#00a5bd}
-.about-text p{line-height:1.8;color:#555;margin-bottom:15px}
-.gallery-table td{width:33.33%;vertical-align:top}
-.gallery-table img,.gallery-table video{width:100%;height:250px;object-fit:cover;border-radius:12px}
-.contact-table td{width:33.33%;text-align:center;padding:30px;background:#f5f5f5;border-radius:12px;vertical-align:top}
-.contact-table h3{color:#00a5bd;margin-bottom:15px}
-.contact-table p{line-height:1.6}
-.contact-table a{color:#222;text-decoration:none}
-.contact-table a:hover{color:#00a5bd}
-footer{background:#111;color:#fff;padding:40px 8% 20px}
-.footer-table{border-collapse:collapse}
-.footer-table td{width:33.33%;vertical-align:top;padding:20px}
-.footer-table h3{color:#00bcd4;margin-bottom:15px}
-.footer-table p{color:#ccc;line-height:1.7;margin-bottom:8px}
-.footer-table a{display:block;color:#ccc;text-decoration:none;margin-bottom:10px;cursor:pointer}
-.footer-table a:hover{color:#00bcd4}
-.copyright{text-align:center;border-top:1px solid #444;margin-top:30px;padding-top:20px;color:#aaa;line-height:1.8}
-.copyright strong{color:#fff}
-
-/* FORM PEMESANAN */
-.pemesanan-section{background:#f5f5f5;min-height:calc(100vh - 70px);padding:60px 8%}
-.pemesanan-container{max-width:850px;margin:auto;background:#fff;padding:35px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.10)}
-.pemesanan-header{text-align:center;margin-bottom:30px}
-.pemesanan-header h2{font-size:32px;margin-bottom:10px;color:#111}
-.pemesanan-header h2 span{color:#00a5bd}
-.pemesanan-header p{color:#666;line-height:1.6}
-.form-group{margin-bottom:22px}
-.form-group>label,.form-label{display:block;font-weight:bold;margin-bottom:9px;color:#222}
-.form-group input[type="text"],.form-group input[type="tel"],.form-group input[type="date"],.form-group input[type="number"]{width:100%;padding:13px;border:1px solid #ccc;border-radius:7px;font-size:15px;font-family:Arial,sans-serif;background:#fff}
-.form-group input:focus{outline:none;border-color:#00bcd4;box-shadow:0 0 0 3px rgba(0,188,212,.12)}
-.form-options{display:flex;flex-wrap:wrap;gap:12px}
-.option-card{display:flex;align-items:center;gap:9px;padding:13px 16px;border:1px solid #ddd;border-radius:8px;cursor:pointer;background:#fff}
-.option-card:has(input:checked){border-color:#00a5bd;background:#eafaff}
-.option-card input{accent-color:#00a5bd;width:17px;height:17px}
-.payment-card{border:1px solid #ddd;border-radius:10px;padding:18px;margin-bottom:15px}
-.payment-heading{display:flex;align-items:center;gap:10px;margin-bottom:15px;font-weight:bold;cursor:pointer}
-.payment-heading input{accent-color:#00a5bd;width:17px;height:17px}
-.payment-logos{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
-.payment-logo{display:inline-block;padding:7px 12px;border:1px solid #ddd;border-radius:5px;font-weight:bold;font-size:13px;background:#fff}
-.visa-logo{color:#1434a4;font-style:italic}
-.mastercard-logo{color:#d12b36}
-.digital-wallets{display:flex;flex-wrap:wrap;gap:10px}
-.digital-wallets .option-card{flex:1 1 120px}
-.form-note{color:#666;font-size:13px;line-height:1.6;margin-top:8px}
-.submit-order{width:100%;padding:15px;border:0;border-radius:8px;background:#00bcd4;color:#fff;font-size:16px;font-weight:bold;cursor:pointer;transition:background .2s}
-.submit-order:hover{background:#008fa1}
-.order-result{margin-top:25px;padding:22px;border:1px solid #b7e5ec;background:#effcff;border-radius:10px;overflow-wrap:anywhere}
-.order-result h3{color:#007f91;margin-bottom:15px}
-.order-result p{margin-bottom:10px;line-height:1.6}
-.order-result ul{padding-left:22px;margin:10px 0;line-height:1.8}
-.order-result[hidden],.payment-fields[hidden]{display:none}
-@media(max-width:768px){
- .nav-table,.nav-table tbody,.nav-table tr,.nav-table td{display:block;width:100%;text-align:center}
- .nav-table td{padding:10px}
- .nav-menu a{margin:5px;font-size:14px}
- main{padding-top:130px}
- .hero h1{font-size:40px}
- .promo-table,.promo-table tbody,.promo-table tr,.promo-table td,.menu-table,.menu-table tbody,.menu-table tr,.menu-table td,.about-table,.about-table tbody,.about-table tr,.about-table td,.gallery-table,.gallery-table tbody,.gallery-table tr,.gallery-table td,.contact-table,.contact-table tbody,.contact-table tr,.contact-table td,.footer-table,.footer-table tbody,.footer-table tr,.footer-table td{display:block;width:100%}
- .promo-table,.menu-table,.about-table,.gallery-table,.contact-table{border-spacing:0}
- .promo-table td,.menu-table td,.about-table td,.gallery-table td,.contact-table td,.footer-table td{margin-bottom:20px}
- .info-promo{overflow-x:auto}
- .info-promo table{min-width:750px}
- .pemesanan-section{padding:30px 5%}
- .pemesanan-container{padding:22px 18px}
- .pemesanan-header h2{font-size:26px}
- .form-options{flex-direction:column}
- .option-card{width:100%}
-}
-</style>
-</head>
-<body>
-<nav>
-<table class="nav-table"><tr>
-<td><div class="logo-text">Seafood <span>48</span></div></td>
-<td class="nav-menu">
-<a onclick="showPage('home',this)" class="active">Home</a>
-<a onclick="showPage('promo',this)">Promo</a>
-<a onclick="showPage('menu',this)">Menu</a>
-<a onclick="showPage('about',this)">About</a>
-<a onclick="showPage('gallery',this)">Gallery</a>
-<a onclick="showPage('contact',this)">Contact</a>
-<a onclick="showPage('pemesanan',this)">Pemesanan</a>
-</td>
-</tr></table>
-</nav>
-
-<main>
-<div id="home" class="page active">
-<section class="hero"><div class="hero-content">
-<h1>Selamat Datang di <span>Seafood 48</span></h1>
-<p>Nikmati berbagai macam seafood segar dengan cita rasa yang lezat dan harga terjangkau.</p>
-<a class="btn" onclick="showPageById('menu')">Lihat Menu</a>
-</div></section>
-</div>
-
-<div id="promo" class="page">
-<section class="promo-section">
-<h2 class="section-title">Promo <span>Spesial</span></h2>
-<table class="promo-table"><tr>
-<td><h3>🔥 Paket Hemat</h3><p>Cumi goreng tepung + nasi putih + es teh manis.</p><div class="promo-price">Rp 45.000</div></td>
-<td><h3>👨‍👩‍👧‍👦 Paket Keluarga</h3><p>Paket seafood untuk keluarga dengan pilihan menu yang lengkap.</p><div class="promo-price">Mulai Rp 100.000</div></td>
-<td><h3>⭐ Weekend Special</h3><p>Dapatkan potongan harga khusus setiap akhir pekan.</p><div class="promo-price">Diskon 10%</div></td>
-</tr></table>
-<div class="info-promo">
-<div class="info-promo-title">Informasi &amp; Ketentuan Promo</div>
-<table><thead><tr><th>NO</th><th>PROGRAM PROMO</th><th>DETAIL PROMO</th><th>PERIODE</th><th>KETENTUAN</th></tr></thead>
-<tbody>
-<tr><td>1</td><td class="promo-name">Paket Hemat</td><td>Nikmati menu favorit dengan harga paket yang lebih hemat.</td><td>Setiap Hari</td><td>Berlaku selama persediaan tersedia.</td></tr>
-<tr><td>2</td><td class="promo-name">Paket Keluarga</td><td>Paket lengkap untuk makan bersama keluarga atau teman.</td><td>Setiap Hari</td><td>Maksimal 1 promo dalam satu transaksi.</td></tr>
-<tr><td>3</td><td class="promo-name">Weekend Special</td><td>Dapatkan potongan harga khusus pada akhir pekan.</td><td>Sabtu - Minggu</td><td>Tidak dapat digabung dengan promo lain.</td></tr>
-<tr><td>4</td><td class="promo-name">Promo Member</td><td>Dapatkan harga khusus untuk pelanggan member.</td><td>Setiap Hari</td><td>Tunjukkan akun member saat pemesanan.</td></tr>
-</tbody></table>
-<div class="catatan"><strong>Catatan:</strong> Semua promo berlaku sesuai ketentuan yang tercantum. Promo dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya.</div>
-</div>
-</section></div>
-
-<div id="menu" class="page"><section class="menu-section">
-<h2 class="section-title">Daftar <span>Menu</span></h2>
-<table class="menu-table">
-<tr>
-<td><img src="cumi.jpg" alt="Cumi Goreng Tepung"><div class="menu-content"><h3>Cumi Goreng Tepung</h3><p>Cumi segar dengan balutan tepung yang renyah dan gurih.</p><div class="price">Rp 35.000</div></div></td>
-<td><img src="udang.jpg" alt="Udang Saus Padang"><div class="menu-content"><h3>Udang Saus Padang</h3><p>Udang segar dengan saus Padang yang pedas dan nikmat.</p><div class="price">Rp 45.000</div></div></td>
-<td><img src="kerang.jpg" alt="Kerang Dara"><div class="menu-content"><h3>Kerang Dara</h3><p>Kerang dara segar dengan bumbu khas Seafood 48.</p><div class="price">Rp 30.000</div></div></td>
-</tr>
-<tr>
-<td><img src="nasi.jpg" alt="Nasi Putih"><div class="menu-content"><h3>Nasi Putih</h3><p>Nasi putih hangat sebagai pelengkap hidangan seafood.</p><div class="price">Rp 6.000</div></div></td>
-<td><img src="esteh.jpg" alt="Es Teh Manis"><div class="menu-content"><h3>Es Teh Manis</h3><p>Minuman teh manis dingin yang menyegarkan.</p><div class="price">Rp 5.000</div></div></td>
-<td><img src="kepiting.jpg" alt="Kepiting Saus Padang"><div class="menu-content"><h3>Kepiting Saus Padang</h3><p>Dua ekor kepiting dengan saus Padang yang pedas, gurih, dan nikmat.</p><div class="price">Rp 175.000</div></div></td>
-</tr></table>
-</section></div>
-
-<div id="about" class="page"><section class="about">
-<table class="about-table"><tr>
-<td><img src="logo.png" alt="Seafood 48"></td>
-<td class="about-text"><h2>Tentang <span>Seafood 48</span></h2>
-<p>Seafood 48 merupakan restoran yang menyediakan berbagai hidangan seafood dengan bahan yang segar dan berkualitas.</p>
-<p>Kami berusaha memberikan rasa yang lezat, pelayanan yang ramah, serta harga yang terjangkau bagi pelanggan.</p>
-<p>Cocok untuk makan bersama keluarga, teman maupun acara bersama.</p></td>
-</tr></table></section></div>
-
-<div id="gallery" class="page"><section class="gallery">
-<h2 class="section-title"><span>Gallery</span> Seafood 48</h2>
-<table class="gallery-table">
-<tr><td><img src="cumi.jpg" alt="Cumi"></td><td><img src="udang.jpg" alt="Udang"></td><td><img src="kerang.jpg" alt="Kerang"></td></tr>
-<tr><td><img src="nasi.jpg" alt="Nasi"></td><td><img src="esteh.jpg" alt="Es Teh"></td><td><img src="kepiting.jpg" alt="Kepiting Saus Padang"></td></tr>
-<tr><td colspan="3"><video controls><source src="video.mp4" type="video/mp4">Browser Anda tidak mendukung video.</video></td></tr>
-</table></section></div>
-
-<div id="contact" class="page"><section class="contact">
-<h2 class="section-title"><span>Contact</span> Us</h2>
-<table class="contact-table"><tr>
-<td><h3>📍 Alamat</h3><p>Jl. Raya Serpong Kilometer 7 No.89-2, Lengkong Karya, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15326</p></td>
-<td><h3>📞 WhatsApp</h3><p><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">Hubungi Kami melalui WhatsApp</a></p></td>
-<td><h3>📱 Instagram</h3><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">@seafood48</a></p></td>
-</tr></table></section></div>
-
-<div id="pemesanan" class="page">
-<section class="pemesanan-section"><div class="pemesanan-container">
-<div class="pemesanan-header"><h2>Form <span>Pemesanan</span></h2><p>Silakan isi data pemesanan Seafood 48 dengan lengkap dan benar.</p></div>
-<form id="formPemesanan">
-<div class="form-group"><label for="namaPelanggan">Nama Lengkap</label><input type="text" id="namaPelanggan" name="nama" placeholder="Masukkan nama lengkap" autocomplete="name" required></div>
-<div class="form-group"><label for="nomorHP">Nomor HP</label><input type="tel" id="nomorHP" name="nomorHP" placeholder="Contoh: 081234567890" autocomplete="tel" pattern="[0-9+() -]{10,20}" title="Masukkan nomor HP dengan 10–20 karakter berupa angka atau simbol nomor telepon." required></div>
-<div class="form-group"><label for="tanggalBooking">Tanggal Booking</label><input type="date" id="tanggalBooking" name="tanggalBooking" required></div>
-<div class="form-group"><span class="form-label">Kategori Menu</span><div class="form-options">
-<label class="option-card"><input type="checkbox" name="kategori" value="Makanan"> 🍽️ Makanan</label>
-<label class="option-card"><input type="checkbox" name="kategori" value="Minuman"> 🥤 Minuman</label>
-<label class="option-card"><input type="checkbox" name="kategori" value="Dessert"> 🍰 Dessert</label>
-</div></div>
-<div class="form-group"><label for="jumlahItem">Jumlah Item</label><input type="number" id="jumlahItem" name="jumlahItem" min="1" max="100" step="1" value="1" required></div>
-<div class="form-group"><span class="form-label">Pilihan Pembayaran</span>
-<div class="payment-card">
-<label class="payment-heading"><input type="radio" name="pembayaran" value="Kartu debit/kredit" required> Kartu Debit/Kredit</label>
-<div class="payment-logos"><span class="payment-logo visa-logo">VISA</span><span class="payment-logo mastercard-logo">Mastercard</span></div>
-<div id="kolomKartu" class="payment-fields" hidden>
-<label class="form-label" for="nomorKartuDemo">Nomor Kartu Simulasi</label>
-<input type="text" id="nomorKartuDemo" name="nomorKartuDemo" inputmode="numeric" autocomplete="off" placeholder="Contoh: 1234 5678 9012 3456" pattern="[0-9 ]{13,23}" title="Masukkan 13–19 angka untuk simulasi.">
-<p class="form-note">Hanya untuk demonstrasi praktikum. Gunakan nomor kartu palsu, bukan data kartu asli. Jangan masukkan CVV atau PIN.</p>
-</div></div>
-<div class="payment-card">
-<label class="payment-heading"><input type="radio" name="pembayaran" value="Dompet digital"> Dompet Digital</label>
-<div id="pilihanDompet" class="payment-fields" hidden><div class="digital-wallets">
-<label class="option-card"><input type="radio" name="dompetDigital" value="DANA"> 🔵 DANA</label>
-<label class="option-card"><input type="radio" name="dompetDigital" value="GoPay"> 🟢 GoPay</label>
-<label class="option-card"><input type="radio" name="dompetDigital" value="OVO"> 🟣 OVO</label>
-<label class="option-card"><input type="radio" name="dompetDigital" value="ShopeePay"> 🟠 ShopeePay</label>
-</div></div></div></div>
-<button type="submit" class="submit-order">Kirim Pemesanan</button>
-</form>
-<div id="hasilPemesanan" class="order-result" aria-live="polite" hidden></div>
-</div></section></div>
-</main>
-
-<footer><table class="footer-table"><tr>
-<td><h3>Seafood 48</h3><p>Fresh Seafood, Delicious Taste.</p><p>Nikmati seafood segar dengan cita rasa terbaik.</p></td>
-<td><h3>Quick Links</h3>
-<a onclick="showPageById('home')">Home</a><a onclick="showPageById('promo')">Promo</a><a onclick="showPageById('menu')">Menu</a><a onclick="showPageById('about')">About</a><a onclick="showPageById('gallery')">Gallery</a><a onclick="showPageById('contact')">Contact</a><a onclick="showPageById('pemesanan')">Pemesanan</a>
-</td>
-<td><h3>Social Media</h3><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp</a></td>
-</tr></table>
-<div class="copyright"><p>© 2026 <strong>Seafood 48</strong></p><p>Website ini adalah milik Seafood 48.</p><p>All Rights Reserved.</p></div>
-</footer>
-
-<script>
-function showPage(pageId, clickedButton) {
-    document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
-    const target = document.getElementById(pageId);
-    if (!target) return;
-    target.classList.add("active");
-    document.querySelectorAll(".nav-menu a").forEach(button => button.classList.remove("active"));
-    const navButton = clickedButton || document.querySelector('.nav-menu a[onclick*="' + pageId + '"]');
-    if (navButton) navButton.classList.add("active");
-    window.scrollTo(0, 0);
-}
-function showPageById(pageId) {
-    const navButton = document.querySelector('.nav-menu a[onclick*="' + pageId + '"]');
-    showPage(pageId, navButton);
-}
-
-const formPemesanan = document.getElementById("formPemesanan");
-const pilihanPembayaran = document.querySelectorAll('input[name="pembayaran"]');
-const kolomKartu = document.getElementById("kolomKartu");
-const pilihanDompet = document.getElementById("pilihanDompet");
-const nomorKartuDemo = document.getElementById("nomorKartuDemo");
-const tanggalBooking = document.getElementById("tanggalBooking");
-const hasilPemesanan = document.getElementById("hasilPemesanan");
-
-const now = new Date();
-const minDate = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
-tanggalBooking.min = minDate;
-
-function aturPembayaran() {
-    const metode = document.querySelector('input[name="pembayaran"]:checked');
-    const pilihKartu = Boolean(metode && metode.value === "Kartu debit/kredit");
-    const pilihDompet = Boolean(metode && metode.value === "Dompet digital");
-    kolomKartu.hidden = !pilihKartu;
-    pilihanDompet.hidden = !pilihDompet;
-    nomorKartuDemo.required = pilihKartu;
-    document.querySelectorAll('input[name="dompetDigital"]').forEach(input => {
-        input.required = pilihDompet;
-        if (!pilihDompet) input.checked = false;
-    });
-    if (!pilihKartu) nomorKartuDemo.value = "";
-}
-pilihanPembayaran.forEach(radio => radio.addEventListener("change", aturPembayaran));
-
-formPemesanan.addEventListener("submit", function(event) {
-    event.preventDefault();
-    if (!formPemesanan.reportValidity()) return;
-
-    const nama = document.getElementById("namaPelanggan").value.trim();
-    const hp = document.getElementById("nomorHP").value.trim();
-    const tanggal = tanggalBooking.value;
-    const kategori = Array.from(document.querySelectorAll('input[name="kategori"]:checked')).map(input => input.value);
-    const jumlah = Number(document.getElementById("jumlahItem").value);
-    const metode = document.querySelector('input[name="pembayaran"]:checked');
-
-    if (!nama) { alert("Nama lengkap wajib diisi."); return; }
-    if (kategori.length === 0) { alert("Silakan pilih minimal satu kategori menu."); return; }
-    if (!Number.isInteger(jumlah) || jumlah < 1 || jumlah > 100) { alert("Jumlah item harus berupa angka 1 sampai 100."); return; }
-    if (!metode) { alert("Silakan pilih metode pembayaran."); return; }
-
-    let detailPembayaran = "";
-    if (metode.value === "Kartu debit/kredit") {
-        const nomorKartu = nomorKartuDemo.value.replace(/\s/g, "");
-        if (!/^\d{13,19}$/.test(nomorKartu)) {
-            alert("Masukkan 13 sampai 19 angka kartu simulasi.");
-            nomorKartuDemo.focus();
-            return;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seafood 48 - Restoran Seafood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
         }
-        detailPembayaran = "Kartu debit/kredit (simulasi; nomor tidak disimpan)";
-    } else {
-        const dompet = document.querySelector('input[name="dompetDigital"]:checked');
-        if (!dompet) { alert("Silakan pilih dompet digital."); return; }
-        detailPembayaran = "Dompet digital: " + dompet.value;
-    }
 
-    const tanggalTampil = new Date(tanggal + "T00:00:00").toLocaleDateString("id-ID", {
-        day: "numeric", month: "long", year: "numeric"
-    });
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222
+        }
 
-    hasilPemesanan.replaceChildren();
-    const judul = document.createElement("h3");
-    judul.textContent = "Pemesanan Berhasil Diproses!";
-    hasilPemesanan.appendChild(judul);
+        nav {
+            width: 100%;
+            background: #111;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .3)
+        }
 
-    function tambahBaris(label, nilai) {
-        const p = document.createElement("p");
-        const strong = document.createElement("strong");
-        strong.textContent = label + ": ";
-        p.appendChild(strong);
-        p.appendChild(document.createTextNode(nilai));
-        hasilPemesanan.appendChild(p);
-    }
-    tambahBaris("Nama", nama);
-    tambahBaris("Nomor HP", hp);
-    tambahBaris("Tanggal booking", tanggalTampil);
-    const pKategori = document.createElement("p");
-    const strongKategori = document.createElement("strong");
-    strongKategori.textContent = "Kategori menu:";
-    pKategori.appendChild(strongKategori);
-    hasilPemesanan.appendChild(pKategori);
+        .nav-table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse
+        }
 
-    const daftar = document.createElement("ul");
-    kategori.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        daftar.appendChild(li);
-    });
-    hasilPemesanan.appendChild(daftar);
-    tambahBaris("Jumlah item", jumlah + " item");
-    tambahBaris("Pembayaran", detailPembayaran);
+        .nav-table td {
+            padding: 18px 10px
+        }
 
-    const catatan = document.createElement("p");
-    catatan.className = "form-note";
-    catatan.textContent = "Ini adalah simulasi praktikum. Pesanan belum dikirim ke server restoran dan tidak ada transaksi pembayaran.";
-    hasilPemesanan.appendChild(catatan);
-    hasilPemesanan.hidden = false;
-    hasilPemesanan.scrollIntoView({behavior:"smooth", block:"nearest"});
-});
+        .logo-text {
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+            white-space: nowrap
+        }
 
-formPemesanan.addEventListener("input", () => hasilPemesanan.hidden = true);
-formPemesanan.addEventListener("change", () => hasilPemesanan.hidden = true);
-</script>
+        .logo-text span {
+            color: #00bcd4
+        }
+
+        .nav-menu {
+            text-align: right
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #00bcd4
+        }
+
+        main {
+            padding-top: 70px
+        }
+
+        .page {
+            display: none;
+            min-height: calc(100vh - 70px)
+        }
+
+        .page.active {
+            display: block
+        }
+
+        .hero {
+            min-height: calc(100vh - 70px);
+            background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url("logo.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px
+        }
+
+        .hero-content {
+            max-width: 900px
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-size: 55px;
+            margin-bottom: 20px
+        }
+
+        .hero h1 span {
+            color: #00bcd4
+        }
+
+        .hero p {
+            color: #fff;
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00bcd4;
+            color: #fff;
+            padding: 14px 25px;
+            text-decoration: none;
+            border: 0;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        .btn:hover {
+            background: #008fa1
+        }
+
+        section {
+            padding: 80px 8%
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+            color: #111
+        }
+
+        .section-title span {
+            color: #00a5bd
+        }
+
+        .promo-section,
+        .about,
+        .contact {
+            background: #fff;
+            min-height: calc(100vh - 70px)
+        }
+
+        .promo-table,
+        .menu-table,
+        .gallery-table,
+        .contact-table,
+        .about-table,
+        .footer-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px
+        }
+
+        .promo-table td {
+            width: 33.33%;
+            background: #111;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            vertical-align: top
+        }
+
+        .promo-table h3 {
+            color: #00bcd4;
+            font-size: 24px;
+            margin-bottom: 15px
+        }
+
+        .promo-price {
+            color: #ffd54f;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px
+        }
+
+        .info-promo {
+            width: 100%;
+            margin-top: 35px;
+            background: #fffaf0;
+            border: 1px solid #e5d5b5;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08)
+        }
+
+        .info-promo-title {
+            padding: 22px 25px;
+            background: #21170f;
+            color: #d9b44a;
+            font-size: 24px;
+            font-weight: bold
+        }
+
+        .info-promo table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        .info-promo th {
+            background: #2a1d14;
+            color: #e5c45a;
+            padding: 16px 15px;
+            text-align: left;
+            font-size: 14px
+        }
+
+        .info-promo td {
+            padding: 16px 15px;
+            border-bottom: 1px solid #eadfc9;
+            color: #55483c;
+            line-height: 1.5
+        }
+
+        .info-promo tr:last-child td {
+            border-bottom: none
+        }
+
+        .info-promo tr:hover td {
+            background: #fff6df
+        }
+
+        .info-promo .promo-name {
+            font-weight: bold;
+            color: #3d3027
+        }
+
+        .catatan {
+            padding: 18px 25px;
+            background: #f8f0df;
+            color: #6b5b4b;
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .menu-section,
+        .gallery {
+            background: #eee;
+            min-height: calc(100vh - 70px)
+        }
+
+        .menu-table td {
+            width: 33.33%;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            vertical-align: top;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .12)
+        }
+
+        .menu-table img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block
+        }
+
+        .menu-content {
+            padding: 20px
+        }
+
+        .menu-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px
+        }
+
+        .menu-content p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px
+        }
+
+        .price {
+            color: #00a5bd;
+            font-size: 20px;
+            font-weight: bold
+        }
+
+        .about-table td {
+            width: 50%;
+            vertical-align: middle
+        }
+
+        .about-table img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px
+        }
+
+        .about-text h2 {
+            font-size: 35px;
+            margin-bottom: 20px
+        }
+
+        .about-text h2 span {
+            color: #00a5bd
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px
+        }
+
+        .gallery-table td {
+            width: 33.33%;
+            vertical-align: top
+        }
+
+        .gallery-table img,
+        .gallery-table video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px
+        }
+
+        .contact-table td {
+            width: 33.33%;
+            text-align: center;
+            padding: 30px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            vertical-align: top
+        }
+
+        .contact-table h3 {
+            color: #00a5bd;
+            margin-bottom: 15px
+        }
+
+        .contact-table p {
+            line-height: 1.6
+        }
+
+        .contact-table a {
+            color: #222;
+            text-decoration: none
+        }
+
+        .contact-table a:hover {
+            color: #00a5bd
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 40px 8% 20px
+        }
+
+        .footer-table {
+            border-collapse: collapse
+        }
+
+        .footer-table td {
+            width: 33.33%;
+            vertical-align: top;
+            padding: 20px
+        }
+
+        .footer-table h3 {
+            color: #00bcd4;
+            margin-bottom: 15px
+        }
+
+        .footer-table p {
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 8px
+        }
+
+        .footer-table a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            cursor: pointer
+        }
+
+        .footer-table a:hover {
+            color: #00bcd4
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #aaa;
+            line-height: 1.8
+        }
+
+        .copyright strong {
+            color: #fff
+        }
+
+        /* FORM PEMESANAN */
+        .pemesanan-section {
+            background: #f5f5f5;
+            min-height: calc(100vh - 70px);
+            padding: 60px 8%
+        }
+
+        .pemesanan-container {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .10)
+        }
+
+        .pemesanan-header {
+            text-align: center;
+            margin-bottom: 30px
+        }
+
+        .pemesanan-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #111
+        }
+
+        .pemesanan-header h2 span {
+            color: #00a5bd
+        }
+
+        .pemesanan-header p {
+            color: #666;
+            line-height: 1.6
+        }
+
+        .form-group {
+            margin-bottom: 22px
+        }
+
+        .form-group>label,
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 9px;
+            color: #222
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            background: #fff
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00bcd4;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, .12)
+        }
+
+        .form-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .option-card {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #fff
+        }
+
+        .option-card:has(input:checked) {
+            border-color: #00a5bd;
+            background: #eafaff
+        }
+
+        .option-card input {
+            accent-color: #00a5bd;
+            width: 17px;
+            height: 17px
+        }
+
+        .payment-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 15px
+        }
+
+        .payment-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        .payment-heading input {
+            accent-color: #00a5bd;
+            width: 17px;
+            height: 17px
+        }
+
+        .payment-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px
+        }
+
+        .payment-logo {
+            display: inline-block;
+            padding: 7px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 13px;
+            background: #fff
+        }
+
+        .visa-logo {
+            color: #1434a4;
+            font-style: italic
+        }
+
+        .mastercard-logo {
+            color: #d12b36
+        }
+
+        .digital-wallets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .digital-wallets .option-card {
+            flex: 1 1 120px
+        }
+
+        .form-note {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 8px
+        }
+
+        .submit-order {
+            width: 100%;
+            padding: 15px;
+            border: 0;
+            border-radius: 8px;
+            background: #00bcd4;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background .2s
+        }
+
+        .submit-order:hover {
+            background: #008fa1
+        }
+
+        .order-result {
+            margin-top: 25px;
+            padding: 22px;
+            border: 1px solid #b7e5ec;
+            background: #effcff;
+            border-radius: 10px;
+            overflow-wrap: anywhere
+        }
+
+        .order-result h3 {
+            color: #007f91;
+            margin-bottom: 15px
+        }
+
+        .order-result p {
+            margin-bottom: 10px;
+            line-height: 1.6
+        }
+
+        .order-result ul {
+            padding-left: 22px;
+            margin: 10px 0;
+            line-height: 1.8
+        }
+
+        .order-result[hidden],
+        .payment-fields[hidden] {
+            display: none
+        }
+
+        @media(max-width:768px) {
+
+            .nav-table,
+            .nav-table tbody,
+            .nav-table tr,
+            .nav-table td {
+                display: block;
+                width: 100%;
+                text-align: center
+            }
+
+            .nav-table td {
+                padding: 10px
+            }
+
+            .nav-menu a {
+                margin: 5px;
+                font-size: 14px
+            }
+
+            main {
+                padding-top: 130px
+            }
+
+            .hero h1 {
+                font-size: 40px
+            }
+
+            .promo-table,
+            .promo-table tbody,
+            .promo-table tr,
+            .promo-table td,
+            .menu-table,
+            .menu-table tbody,
+            .menu-table tr,
+            .menu-table td,
+            .about-table,
+            .about-table tbody,
+            .about-table tr,
+            .about-table td,
+            .gallery-table,
+            .gallery-table tbody,
+            .gallery-table tr,
+            .gallery-table td,
+            .contact-table,
+            .contact-table tbody,
+            .contact-table tr,
+            .contact-table td,
+            .footer-table,
+            .footer-table tbody,
+            .footer-table tr,
+            .footer-table td {
+                display: block;
+                width: 100%
+            }
+
+            .promo-table,
+            .menu-table,
+            .about-table,
+            .gallery-table,
+            .contact-table {
+                border-spacing: 0
+            }
+
+            .promo-table td,
+            .menu-table td,
+            .about-table td,
+            .gallery-table td,
+            .contact-table td,
+            .footer-table td {
+                margin-bottom: 20px
+            }
+
+            .info-promo {
+                overflow-x: auto
+            }
+
+            .info-promo table {
+                min-width: 750px
+            }
+
+            .pemesanan-section {
+                padding: 30px 5%
+            }
+
+            .pemesanan-container {
+                padding: 22px 18px
+            }
+
+            .pemesanan-header h2 {
+                font-size: 26px
+            }
+
+            .form-options {
+                flex-direction: column
+            }
+
+            .option-card {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <table class="nav-table">
+            <tr>
+                <td>
+                    <div class="logo-text">Seafood <span>48</span></div>
+                </td>
+                <td class="nav-menu">
+                    <a onclick="showPage('home',this)" class="active">Home</a>
+                    <a onclick="showPage('promo',this)">Promo</a>
+                    <a onclick="showPage('menu',this)">Menu</a>
+                    <a onclick="showPage('about',this)">About</a>
+                    <a onclick="showPage('gallery',this)">Gallery</a>
+                    <a onclick="showPage('contact',this)">Contact</a>
+                    <a onclick="showPage('pemesanan',this)">Pemesanan</a>
+                </td>
+            </tr>
+        </table>
+    </nav>
+
+    <main>
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Selamat Datang di <span>Seafood 48</span></h1>
+                    <p>Nikmati berbagai macam seafood segar dengan cita rasa yang lezat dan harga terjangkau.</p>
+                    <a class="btn" onclick="showPageById('menu')">Lihat Menu</a>
+                </div>
+            </section>
+        </div>
+
+        <div id="promo" class="page">
+            <section class="promo-section">
+                <h2 class="section-title">Promo <span>Spesial</span></h2>
+                <table class="promo-table">
+                    <tr>
+                        <td>
+                            <h3>🔥 Paket Hemat</h3>
+                            <p>Cumi goreng tepung + nasi putih + es teh manis.</p>
+                            <div class="promo-price">Rp 45.000</div>
+                        </td>
+                        <td>
+                            <h3>👨‍👩‍👧‍👦 Paket Keluarga</h3>
+                            <p>Paket seafood untuk keluarga dengan pilihan menu yang lengkap.</p>
+                            <div class="promo-price">Mulai Rp 100.000</div>
+                        </td>
+                        <td>
+                            <h3>⭐ Weekend Special</h3>
+                            <p>Dapatkan potongan harga khusus setiap akhir pekan.</p>
+                            <div class="promo-price">Diskon 10%</div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="info-promo">
+                    <div class="info-promo-title">Informasi &amp; Ketentuan Promo</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>PROGRAM PROMO</th>
+                                <th>DETAIL PROMO</th>
+                                <th>PERIODE</th>
+                                <th>KETENTUAN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="promo-name">Paket Hemat</td>
+                                <td>Nikmati menu favorit dengan harga paket yang lebih hemat.</td>
+                                <td>Setiap Hari</td>
+                                <td>Berlaku selama persediaan tersedia.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="promo-name">Paket Keluarga</td>
+                                <td>Paket lengkap untuk makan bersama keluarga atau teman.</td>
+                                <td>Setiap Hari</td>
+                                <td>Maksimal 1 promo dalam satu transaksi.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="promo-name">Weekend Special</td>
+                                <td>Dapatkan potongan harga khusus pada akhir pekan.</td>
+                                <td>Sabtu - Minggu</td>
+                                <td>Tidak dapat digabung dengan promo lain.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="promo-name">Promo Member</td>
+                                <td>Dapatkan harga khusus untuk pelanggan member.</td>
+                                <td>Setiap Hari</td>
+                                <td>Tunjukkan akun member saat pemesanan.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="catatan"><strong>Catatan:</strong> Semua promo berlaku sesuai ketentuan yang tercantum.
+                        Promo dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya.</div>
+                </div>
+            </section>
+        </div>
+
+        <div id="menu" class="page">
+            <section class="menu-section">
+                <h2 class="section-title">Daftar <span>Menu</span></h2>
+                <table class="menu-table">
+                    <tr>
+                        <td><img src="cumi.jpg" alt="Cumi Goreng Tepung">
+                            <div class="menu-content">
+                                <h3>Cumi Goreng Tepung</h3>
+                                <p>Cumi segar dengan balutan tepung yang renyah dan gurih.</p>
+                                <div class="price">Rp 35.000</div>
+                            </div>
+                        </td>
+                        <td><img src="udang.jpg" alt="Udang Saus Padang">
+                            <div class="menu-content">
+                                <h3>Udang Saus Padang</h3>
+                                <p>Udang segar dengan saus Padang yang pedas dan nikmat.</p>
+                                <div class="price">Rp 45.000</div>
+                            </div>
+                        </td>
+                        <td><img src="kerang.jpg" alt="Kerang Dara">
+                            <div class="menu-content">
+                                <h3>Kerang Dara</h3>
+                                <p>Kerang dara segar dengan bumbu khas Seafood 48.</p>
+                                <div class="price">Rp 30.000</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="nasi.jpg" alt="Nasi Putih">
+                            <div class="menu-content">
+                                <h3>Nasi Putih</h3>
+                                <p>Nasi putih hangat sebagai pelengkap hidangan seafood.</p>
+                                <div class="price">Rp 6.000</div>
+                            </div>
+                        </td>
+                        <td><img src="esteh.jpg" alt="Es Teh Manis">
+                            <div class="menu-content">
+                                <h3>Es Teh Manis</h3>
+                                <p>Minuman teh manis dingin yang menyegarkan.</p>
+                                <div class="price">Rp 5.000</div>
+                            </div>
+                        </td>
+                        <td><img src="kepiting.jpg" alt="Kepiting Saus Padang">
+                            <div class="menu-content">
+                                <h3>Kepiting Saus Padang</h3>
+                                <p>Dua ekor kepiting dengan saus Padang yang pedas, gurih, dan nikmat.</p>
+                                <div class="price">Rp 175.000</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+
+        <div id="about" class="page">
+            <section class="about">
+                <table class="about-table">
+                    <tr>
+                        <td><img src="logo.png" alt="Seafood 48"></td>
+                        <td class="about-text">
+                            <h2>Tentang <span>Seafood 48</span></h2>
+                            <p>Seafood 48 merupakan restoran yang menyediakan berbagai hidangan seafood dengan bahan
+                                yang segar dan berkualitas.</p>
+                            <p>Kami berusaha memberikan rasa yang lezat, pelayanan yang ramah, serta harga yang
+                                terjangkau bagi pelanggan.</p>
+                            <p>Cocok untuk makan bersama keluarga, teman maupun acara bersama.</p>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+
+        <div id="gallery" class="page">
+            <section class="gallery">
+                <h2 class="section-title"><span>Gallery</span> Seafood 48</h2>
+                <table class="gallery-table">
+                    <tr>
+                        <td><img src="cumi.jpg" alt="Cumi"></td>
+                        <td><img src="udang.jpg" alt="Udang"></td>
+                        <td><img src="kerang.jpg" alt="Kerang"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="nasi.jpg" alt="Nasi"></td>
+                        <td><img src="esteh.jpg" alt="Es Teh"></td>
+                        <td><img src="kepiting.jpg" alt="Kepiting Saus Padang"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><video controls>
+                                <source src="video.mp4" type="video/mp4">Browser Anda tidak mendukung video.
+                            </video></td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+
+        <div id="contact" class="page">
+            <section class="contact">
+                <h2 class="section-title"><span>Contact</span> Us</h2>
+                <table class="contact-table">
+                    <tr>
+                        <td>
+                            <h3>📍 Alamat</h3>
+                            <p>Jl. Raya Serpong Kilometer 7 No.89-2, Lengkong Karya, Kec. Serpong Utara, Kota Tangerang
+                                Selatan, Banten 15326</p>
+                        </td>
+                        <td>
+                            <h3>📞 WhatsApp</h3>
+                            <p><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">Hubungi Kami melalui
+                                    WhatsApp</a></p>
+                        </td>
+                        <td>
+                            <h3>📱 Instagram</h3>
+                            <p><a href="https://www.instagram.com/" target="_blank" rel="noopener">@seafood48</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+
+        <div id="pemesanan" class="page">
+            <section class="pemesanan-section">
+                <div class="pemesanan-container">
+                    <div class="pemesanan-header">
+                        <h2>Form <span>Pemesanan</span></h2>
+                        <p>Silakan isi data pemesanan Seafood 48 dengan lengkap dan benar.</p>
+                    </div>
+                    <form id="formPemesanan">
+                        <div class="form-group"><label for="namaPelanggan">Nama Lengkap</label><input type="text"
+                                id="namaPelanggan" name="nama" placeholder="Masukkan nama lengkap" autocomplete="name"
+                                required></div>
+                        <div class="form-group"><label for="nomorHP">Nomor HP</label><input type="tel" id="nomorHP"
+                                name="nomorHP" placeholder="Contoh: 081234567890" autocomplete="tel"
+                                pattern="[0-9+() -]{10,20}"
+                                title="Masukkan nomor HP dengan 10–20 karakter berupa angka atau simbol nomor telepon."
+                                required></div>
+                        <div class="form-group"><label for="tanggalBooking">Tanggal Booking</label><input type="date"
+                                id="tanggalBooking" name="tanggalBooking" required></div>
+                        <div class="form-group"><span class="form-label">Kategori Menu</span>
+                            <div class="form-options">
+                                <label class="option-card"><input type="checkbox" name="kategori" value="Makanan"> 🍽️
+                                    Makanan</label>
+                                <label class="option-card"><input type="checkbox" name="kategori" value="Minuman"> 🥤
+                                    Minuman</label>
+                                <label class="option-card"><input type="checkbox" name="kategori" value="Dessert"> 🍰
+                                    Dessert</label>
+                            </div>
+                        </div>
+                        <div class="form-group"><label for="jumlahItem">Jumlah Item</label><input type="number"
+                                id="jumlahItem" name="jumlahItem" min="1" max="100" step="1" value="1" required></div>
+                        <div class="form-group"><span class="form-label">Pilihan Pembayaran</span>
+                            <div class="payment-card">
+                                <label class="payment-heading"><input type="radio" name="pembayaran"
+                                        value="Kartu debit/kredit" required> Kartu Debit/Kredit</label>
+                                <div class="payment-logos"><span class="payment-logo visa-logo">VISA</span><span
+                                        class="payment-logo mastercard-logo">Mastercard</span></div>
+                                <div id="kolomKartu" class="payment-fields" hidden>
+                                    <label class="form-label" for="nomorKartuDemo">Nomor Kartu Simulasi</label>
+                                    <input type="text" id="nomorKartuDemo" name="nomorKartuDemo" inputmode="numeric"
+                                        autocomplete="off" placeholder="Contoh: 1234 5678 9012 3456"
+                                        pattern="[0-9 ]{13,23}" title="Masukkan 13–19 angka untuk simulasi.">
+                                    <p class="form-note">Hanya untuk demonstrasi praktikum. Gunakan nomor kartu palsu,
+                                        bukan data kartu asli. Jangan masukkan CVV atau PIN.</p>
+                                </div>
+                            </div>
+                            <div class="payment-card">
+                                <label class="payment-heading"><input type="radio" name="pembayaran"
+                                        value="Dompet digital"> Dompet Digital</label>
+                                <div id="pilihanDompet" class="payment-fields" hidden>
+                                    <div class="digital-wallets">
+                                        <label class="option-card"><input type="radio" name="dompetDigital"
+                                                value="DANA"> 🔵 DANA</label>
+                                        <label class="option-card"><input type="radio" name="dompetDigital"
+                                                value="GoPay"> 🟢 GoPay</label>
+                                        <label class="option-card"><input type="radio" name="dompetDigital" value="OVO">
+                                            🟣 OVO</label>
+                                        <label class="option-card"><input type="radio" name="dompetDigital"
+                                                value="ShopeePay"> 🟠 ShopeePay</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-order">Kirim Pemesanan</button>
+                    </form>
+                    <div id="hasilPemesanan" class="order-result" aria-live="polite" hidden></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <table class="footer-table">
+            <tr>
+                <td>
+                    <h3>Seafood 48</h3>
+                    <p>Fresh Seafood, Delicious Taste.</p>
+                    <p>Nikmati seafood segar dengan cita rasa terbaik.</p>
+                </td>
+                <td>
+                    <h3>Quick Links</h3>
+                    <a onclick="showPageById('home')">Home</a><a onclick="showPageById('promo')">Promo</a><a
+                        onclick="showPageById('menu')">Menu</a><a onclick="showPageById('about')">About</a><a
+                        onclick="showPageById('gallery')">Gallery</a><a onclick="showPageById('contact')">Contact</a><a
+                        onclick="showPageById('pemesanan')">Pemesanan</a>
+                </td>
+                <td>
+                    <h3>Social Media</h3><a href="https://www.instagram.com/" target="_blank"
+                        rel="noopener">Instagram</a><a href="https://wa.me/6281234567890" target="_blank"
+                        rel="noopener">WhatsApp</a>
+                </td>
+            </tr>
+        </table>
+        <div class="copyright">
+            <p>© 2026 <strong>Seafood 48</strong></p>
+            <p>Website ini adalah milik Seafood 48.</p>
+            <p>All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId, clickedButton) {
+            document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+            const target = document.getElementById(pageId);
+            if (!target) return;
+            target.classList.add("active");
+            document.querySelectorAll(".nav-menu a").forEach(button => button.classList.remove("active"));
+            const navButton = clickedButton || document.querySelector('.nav-menu a[onclick*="' + pageId + '"]');
+            if (navButton) navButton.classList.add("active");
+            window.scrollTo(0, 0);
+        }
+        function showPageById(pageId) {
+            const navButton = document.querySelector('.nav-menu a[onclick*="' + pageId + '"]');
+            showPage(pageId, navButton);
+        }
+
+        const formPemesanan = document.getElementById("formPemesanan");
+        const pilihanPembayaran = document.querySelectorAll('input[name="pembayaran"]');
+        const kolomKartu = document.getElementById("kolomKartu");
+        const pilihanDompet = document.getElementById("pilihanDompet");
+        const nomorKartuDemo = document.getElementById("nomorKartuDemo");
+        const tanggalBooking = document.getElementById("tanggalBooking");
+        const hasilPemesanan = document.getElementById("hasilPemesanan");
+
+        const now = new Date();
+        const minDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+        tanggalBooking.min = minDate;
+
+        function aturPembayaran() {
+            const metode = document.querySelector('input[name="pembayaran"]:checked');
+            const pilihKartu = Boolean(metode && metode.value === "Kartu debit/kredit");
+            const pilihDompet = Boolean(metode && metode.value === "Dompet digital");
+            kolomKartu.hidden = !pilihKartu;
+            pilihanDompet.hidden = !pilihDompet;
+            nomorKartuDemo.required = pilihKartu;
+            document.querySelectorAll('input[name="dompetDigital"]').forEach(input => {
+                input.required = pilihDompet;
+                if (!pilihDompet) input.checked = false;
+            });
+            if (!pilihKartu) nomorKartuDemo.value = "";
+        }
+        pilihanPembayaran.forEach(radio => radio.addEventListener("change", aturPembayaran));
+
+        formPemesanan.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (!formPemesanan.reportValidity()) return;
+
+            const nama = document.getElementById("namaPelanggan").value.trim();
+            const hp = document.getElementById("nomorHP").value.trim();
+            const tanggal = tanggalBooking.value;
+            const kategori = Array.from(document.querySelectorAll('input[name="kategori"]:checked')).map(input => input.value);
+            const jumlah = Number(document.getElementById("jumlahItem").value);
+            const metode = document.querySelector('input[name="pembayaran"]:checked');
+
+            if (!nama) { alert("Nama lengkap wajib diisi."); return; }
+            if (kategori.length === 0) { alert("Silakan pilih minimal satu kategori menu."); return; }
+            if (!Number.isInteger(jumlah) || jumlah < 1 || jumlah > 100) { alert("Jumlah item harus berupa angka 1 sampai 100."); return; }
+            if (!metode) { alert("Silakan pilih metode pembayaran."); return; }
+
+            let detailPembayaran = "";
+            if (metode.value === "Kartu debit/kredit") {
+                const nomorKartu = nomorKartuDemo.value.replace(/\s/g, "");
+                if (!/^\d{13,19}$/.test(nomorKartu)) {
+                    alert("Masukkan 13 sampai 19 angka kartu simulasi.");
+                    nomorKartuDemo.focus();
+                    return;
+                }
+                detailPembayaran = "Kartu debit/kredit (simulasi; nomor tidak disimpan)";
+            } else {
+                const dompet = document.querySelector('input[name="dompetDigital"]:checked');
+                if (!dompet) { alert("Silakan pilih dompet digital."); return; }
+                detailPembayaran = "Dompet digital: " + dompet.value;
+            }
+
+            const tanggalTampil = new Date(tanggal + "T00:00:00").toLocaleDateString("id-ID", {
+                day: "numeric", month: "long", year: "numeric"
+            });
+
+            hasilPemesanan.replaceChildren();
+            const judul = document.createElement("h3");
+            judul.textContent = "Pemesanan Berhasil Diproses!";
+            hasilPemesanan.appendChild(judul);
+
+            function tambahBaris(label, nilai) {
+                const p = document.createElement("p");
+                const strong = document.createElement("strong");
+                strong.textContent = label + ": ";
+                p.appendChild(strong);
+                p.appendChild(document.createTextNode(nilai));
+                hasilPemesanan.appendChild(p);
+            }
+            tambahBaris("Nama", nama);
+            tambahBaris("Nomor HP", hp);
+            tambahBaris("Tanggal booking", tanggalTampil);
+            const pKategori = document.createElement("p");
+            const strongKategori = document.createElement("strong");
+            strongKategori.textContent = "Kategori menu:";
+            pKategori.appendChild(strongKategori);
+            hasilPemesanan.appendChild(pKategori);
+
+            const daftar = document.createElement("ul");
+            kategori.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                daftar.appendChild(li);
+            });
+            hasilPemesanan.appendChild(daftar);
+            tambahBaris("Jumlah item", jumlah + " item");
+            tambahBaris("Pembayaran", detailPembayaran);
+
+            const catatan = document.createElement("p");
+            catatan.className = "form-note";
+            catatan.textContent = "Ini adalah simulasi praktikum. Pesanan belum dikirim ke server restoran dan tidak ada transaksi pembayaran.";
+            hasilPemesanan.appendChild(catatan);
+            hasilPemesanan.hidden = false;
+            hasilPemesanan.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+
+        formPemesanan.addEventListener("input", () => hasilPemesanan.hidden = true);
+        formPemesanan.addEventListener("change", () => hasilPemesanan.hidden = true);
+    </script>
 </body>
+
 </html>
